@@ -86,7 +86,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 .grid{padding:.75rem 1.5rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.1rem;}
 
 /* -- Card -- */
-.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);transition:transform .2s,box-shadow .2s,border-color .2s;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);transition:transform .2s,box-shadow .2s,border-color .2s;;display:flex;flex-direction:column;}
 .card:hover{transform:translateY(-4px);box-shadow:0 10px 32px rgba(0,0,0,.1);border-color:var(--border2);}
 .card.cg{border-left:3px solid var(--card-border-c);}
 
@@ -108,7 +108,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 .glink:hover{background:rgba(0,0,0,.9);}
 
 /* -- Card body -- */
-.cbody{padding:.9rem 1rem .85rem;}
+.cbody{padding:.9rem 1rem .85rem;;display:flex;flex-direction:column;flex:1;}
 .cname{font-family:var(--font-display);font-size:1rem;font-weight:600;line-height:1.25;color:var(--text);}
 .price-row{display:flex;align-items:baseline;gap:4px;margin-top:.5rem;}
 .price{font-size:1.25rem;font-weight:600;color:var(--price-color);transition:color 0.4s;}
@@ -131,33 +131,16 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 .chip-color{font-weight:600;letter-spacing:.01em;}
 .chip-color:hover{transform:scale(1.06);}
 .chip.more{border-style:dashed;color:var(--dim);}
-.clinks{display:flex;gap:5px;margin-top:.7rem;padding-top:.7rem;border-top:1px solid var(--border);}
-.cl{flex:1;text-align:center;padding:6px;border-radius:7px;font-size:10px;font-weight:600;text-decoration:none;transition:all .15s;}
-.cl-g{background:var(--surface2);border:1px solid var(--border);color:var(--muted);}
-.cl-g:hover{border-color:var(--price-color);color:var(--price-color);}
-.cl-c{background:var(--accentbg);border:1px solid var(--accent);color:var(--accent);}
-.cl-c:hover{opacity:.8;}
-.card-score-area{
-  margin-top:.75rem;
-  padding:.65rem .8rem;
-  background:var(--surface2);
-  border-radius:7px;
-  border:1px solid var(--border);
-}
-.score-label{
-  font-size:9px;font-family:'DM Mono',monospace;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:var(--dim);margin-bottom:.4rem;
-}
-.score-row{display:flex;align-items:center;gap:6px;}
-.stars{display:flex;gap:3px;}
-.star{font-size:14px;cursor:pointer;color:var(--surface2);transition:color .1s,opacity .1s;line-height:1;user-select:none;}
-.stars:hover .star{color:var(--star-color);opacity:.35;}
+.clinks{display:flex;gap:5px;margin-top:.7rem;padding-top:.7rem;border-top:1px solid var(--border);;margin-top:auto;}
+.cl{flex:1;text-align:center;padding:6px 8px;border-radius:6px;font-size:10px;font-weight:500;font-family:'DM Mono',monospace;text-decoration:none;cursor:pointer;transition:all .15s;letter-spacing:.03em;display:inline-flex;align-items:center;justify-content:center;gap:.3rem;border:1px solid var(--accent);background:var(--accentbg);color:var(--accent);}
+.cl-g{}
+
+.cl-c{}
+.cl-c:hover{opacity:.85;}
 .stars .star:hover,.stars .star:hover~.star+.star{color:var(--surface2);}
 .stars .star:hover{color:var(--star-color);opacity:1;}
-.stars:hover .star.on{opacity:1;}
+.stars:hover
 .star.on{color:var(--star-color);transition:color 0.4s;}
-.snum{font-size:11px;font-weight:600;color:var(--star-color);min-width:26px;transition:color 0.4s;}
 
 /* -- Scrollbar (larger for usability) -- */
 ::-webkit-scrollbar{width:8px;height:8px;}
@@ -318,15 +301,8 @@ svg.cargo-chart-svg{display:block;width:100%;overflow:visible;}
 .vn-link-bat::before { content:'BaT'; font-size:8px; opacity:.6; margin-right:2px; }
 
 
-.cl-f {
-  display:inline-flex;align-items:center;gap:.3rem;
-  padding:6px 12px;border-radius:5px;font-size:11px;
-  font-family:'DM Mono',monospace;font-weight:500;
-  text-decoration:none;cursor:pointer;transition:all .15s;
-  background:var(--accent);color:white;border:none;
-  letter-spacing:.04em;
-}
-.cl-f:hover { opacity:.85; transform:translateY(-1px); }
+.cl-f {}
+
 
 
 /* -- Compare Tab ------------------------------ */
@@ -504,15 +480,11 @@ svg.cargo-chart-svg{display:block;width:100%;overflow:visible;}
 .cmp-cad-link:hover { opacity:.7; text-decoration:underline; }
 
 
-.cl-h {
-  display:inline-flex;align-items:center;gap:.3rem;
-  padding:6px 12px;border-radius:5px;font-size:11px;
-  font-family:'DM Mono',monospace;font-weight:500;
-  text-decoration:none;cursor:pointer;transition:all .15s;
-  background:transparent;color:var(--accent);
-  border:1px solid var(--accent);letter-spacing:.04em;
-}
-.cl-h:hover { background:var(--accent); color:#fff; }
+.cl-h {}
+.cl-h:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+.cl:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+.cl-f:hover { background:var(--accent); }
+
 
 
 .cl-sep {
@@ -529,6 +501,75 @@ svg.cargo-chart-svg{display:block;width:100%;overflow:visible;}
 .cmp-hood-btn:hover {
   filter:brightness(.92);
   color:#fff !important;
+}
+
+
+.vn-always {
+  padding:.6rem .85rem .5rem;
+  border-top:1px solid var(--rule2,rgba(26,23,20,.06));
+
+  flex: 1;
+}
+.vn-label {
+  font-family:var(--mono,'DM Mono',monospace);
+  font-size:9px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--dim,#888);margin-bottom:.35rem;
+}
+.vn-text {
+  font-size:12px;color:var(--ink2,#3a3830);line-height:1.65;
+}
+
+
+/* -- Inline focus tab ------------------------------------ */
+#tab-focus {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 200;
+  background: var(--paper, #f8f5ee);
+  flex-direction: column;
+}
+#tab-focus[style*="block"] { display: flex !important; }
+.focus-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 201;
+  height: 46px;
+  background: #1a1714;
+  border-bottom: 2px solid #c4a040;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1.5rem;
+  flex-shrink: 0;
+}
+.focus-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .35rem 1rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: background .15s;
+  flex-shrink: 0;
+}
+.focus-back-btn:hover { background: #b89030; }
+.focus-back-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.4);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 </style>
@@ -752,6 +793,14 @@ svg.cargo-chart-svg{display:block;width:100%;overflow:visible;}
 <div class="cmp-summary-card"><div class="cmp-summary-title">Best Sport Daily</div><div class="cmp-summary-body">The <strong>Porsche Cayenne S</strong> earns the highest J.D. Power score (88/100) and the sharpest on-road dynamics. PASM adaptive suspension and Porsche Traction Management make it the most driver-focused choice.</div></div>
   </div>
 </div>
+<div id="tab-focus" style="display:none;padding:0;">
+  <div class="focus-topbar">
+    <button class="focus-back-btn" onclick="closeFocusTab()">&#10094; Back to Picker</button>
+    <span class="focus-back-label" id="focusTabLabel"></span>
+  </div>
+  <div id="focusTabContent" style="width:100%;height:calc(100vh - 46px);overflow:auto;"></div>
+</div>
+
 
 <script>// ===== VARIANT DESCRIPTIONS =====
 const VARIANT_NOTES = {
@@ -803,44 +852,44 @@ const VARIANT_NOTES = {
 const BRANDS = [
  {name:"Land Rover",vehicles:{
   current:[
-   {id:"rr24",name:"2024 Range Rover HSE D350",engine:"I6 Mild Hybrid Diesel",hp:350,torque:500,zero60:6.2,topspeed:130,msrp:119550,astested:138000,mpg:"28 MPG",seats:5,maxseats:7,cargo:71.4,tow:7716,suspension:"Air / CDC",nvh:"Excellent",warranty:"4yr/50k",jdpower:"87/100",colors:["Santorini Black","Carpathian Grey","Arroios Grey","Ostuni Pearl White","Fuji White","Rossello Red","Balmoral Blue","Amalfi Green","Aintree Green"],img_url:"https://www.landrover.com/vehicles/range-rover/gallery.html",config_url:"https://www.landrover.com/configurator/"},
-   {id:"rrs24",name:"2024 Range Rover Sport HSE Dynamic",engine:"I6 Mild Hybrid",hp:395,torque:406,zero60:5.9,topspeed:130,msrp:91350,astested:108000,mpg:"22 MPG",seats:5,maxseats:5,cargo:63.0,tow:7716,suspension:"Air / CDC",nvh:"Very Good",warranty:"4yr/50k",jdpower:"87/100",colors:["Santorini Black","Carpathian Grey","Hakuba Silver","Ostuni Pearl White","Firenze Red","Portofino Blue","Tasman Blue"],img_url:"https://www.landrover.com/vehicles/range-rover-sport/gallery.html",config_url:"https://www.landrover.com/configurator/"},
-   {id:"def130",name:"2024 Defender 130 X V8",engine:"Supercharged V8",hp:518,torque:461,zero60:4.9,topspeed:149,msrp:121700,astested:135000,mpg:"17 MPG",seats:5,maxseats:8,cargo:130.0,tow:8201,suspension:"Air / ACE",nvh:"Good",warranty:"4yr/50k",jdpower:"83/100",colors:["Santorini Black","Carpathian Grey","Gondwana Stone","Fuji White","Sedona Red","Tasman Blue","Grasmere Green"],img_url:"https://www.landrover.com/vehicles/defender/gallery.html",config_url:"https://www.landrover.com/configurator/"},
-   {id:"def110",name:"2024 Defender 110 X-Dynamic SE",engine:"I6 Mild Hybrid",hp:395,torque:406,zero60:5.4,topspeed:130,msrp:79100,astested:94000,mpg:"22 MPG",seats:5,maxseats:5,cargo:106.0,tow:8201,suspension:"Air / ACE",nvh:"Good",warranty:"4yr/50k",jdpower:"83/100",colors:["Santorini Black","Carpathian Grey","Gondwana Stone","Fuji White","Sedona Red","Tasman Blue","Grasmere Green","Pangea Green"],img_url:"https://www.landrover.com/vehicles/defender/gallery.html",config_url:"https://www.landrover.com/configurator/"},
-   {id:"def90",name:"2025 Defender 90 X-Dynamic SE",engine:"I6 Mild Hybrid",hp:395,torque:406,zero60:5.9,topspeed:130,msrp:68500,astested:82000,mpg:"18/21/19 MPG",seats:5,maxseats:5,cargo:15.8,tow:8201,suspension:"Air / CDC",nvh:"Good",warranty:"4yr/50k",jdpower:"N/A",colors:["Santorini Black","Carpathian Grey","Sedona Red","Grasmere Green","Hakuba Silver","Fuji White","Pangea Green","Byron Blue","Solar Octane"],img_url:"https://www.landrover.com/vehicles/defender/gallery.html",config_url:"https://www.landrover.com/configurator/lr/en_gb/defender"},
+   {id:"rr24",name:"Range Rover HSE D350",engine:"I6 Mild Hybrid Diesel",hp:350,torque:500,zero60:6.2,topspeed:130,msrp:119550,astested:138000,mpg:"28 MPG",seats:5,maxseats:7,cargo:71.4,tow:7716,suspension:"Air / CDC",nvh:"Excellent",warranty:"4yr/50k",jdpower:"87/100",colors:["Santorini Black","Carpathian Grey","Arroios Grey","Ostuni Pearl White","Fuji White","Rossello Red","Balmoral Blue","Amalfi Green","Aintree Green"],img_url:"https://www.landrover.com/vehicles/range-rover/gallery.html",config_url:"https://www.landrover.com/configurator/"},
+   {id:"rrs24",name:"Range Rover Sport HSE Dynamic",engine:"I6 Mild Hybrid",hp:395,torque:406,zero60:5.9,topspeed:130,msrp:91350,astested:108000,mpg:"22 MPG",seats:5,maxseats:5,cargo:63.0,tow:7716,suspension:"Air / CDC",nvh:"Very Good",warranty:"4yr/50k",jdpower:"87/100",colors:["Santorini Black","Carpathian Grey","Hakuba Silver","Ostuni Pearl White","Firenze Red","Portofino Blue","Tasman Blue"],img_url:"https://www.landrover.com/vehicles/range-rover-sport/gallery.html",config_url:"https://www.landrover.com/configurator/"},
+   {id:"def130",name:"Defender 130 X V8",engine:"Supercharged V8",hp:518,torque:461,zero60:4.9,topspeed:149,msrp:121700,astested:135000,mpg:"17 MPG",seats:5,maxseats:8,cargo:130.0,tow:8201,suspension:"Air / ACE",nvh:"Good",warranty:"4yr/50k",jdpower:"83/100",colors:["Santorini Black","Carpathian Grey","Gondwana Stone","Fuji White","Sedona Red","Tasman Blue","Grasmere Green"],img_url:"https://www.landrover.com/vehicles/defender/gallery.html",config_url:"https://www.landrover.com/configurator/"},
+   {id:"def110",name:"Defender 110 X-Dynamic SE",engine:"I6 Mild Hybrid",hp:395,torque:406,zero60:5.4,topspeed:130,msrp:79100,astested:94000,mpg:"22 MPG",seats:5,maxseats:5,cargo:106.0,tow:8201,suspension:"Air / ACE",nvh:"Good",warranty:"4yr/50k",jdpower:"83/100",colors:["Santorini Black","Carpathian Grey","Gondwana Stone","Fuji White","Sedona Red","Tasman Blue","Grasmere Green","Pangea Green"],img_url:"https://www.landrover.com/vehicles/defender/gallery.html",config_url:"https://www.landrover.com/configurator/"},
+   {id:"def90",name:"Defender 90 X-Dynamic SE",engine:"I6 Mild Hybrid",hp:395,torque:406,zero60:5.9,topspeed:130,msrp:68500,astested:82000,mpg:"18/21/19 MPG",seats:5,maxseats:5,cargo:15.8,tow:8201,suspension:"Air / CDC",nvh:"Good",warranty:"4yr/50k",jdpower:"N/A",colors:["Santorini Black","Carpathian Grey","Sedona Red","Grasmere Green","Hakuba Silver","Fuji White","Pangea Green","Byron Blue","Solar Octane"],img_url:"https://www.landrover.com/vehicles/defender/gallery.html",config_url:"https://www.landrover.com/configurator/lr/en_gb/defender"},
   ]
  }},
  {name:"Lexus / Toyota LC",vehicles:{
   current:[
-   {id:"lx24ul",name:"2024 LX 600 Ultra Luxury",engine:"V6 Twin Turbo",hp:409,torque:479,zero60:5.2,topspeed:130,msrp:131195,astested:147000,mpg:"17 MPG",seats:4,maxseats:7,cargo:83.1,tow:8000,suspension:"Air",nvh:"Excellent",warranty:"4yr/50k",jdpower:"84/100",colors:["Caviar","Nori Green Pearl","Cloudburst Gray","Sonic Titanium","Iridium","Moonbeam","Ultra White","Atomic Silver"],img_url:"https://www.lexus.com/models/LX/gallery",config_url:"https://www.lexus.com/configurator/"},
-   {id:"lx24fs",name:"2024 LX 600 F Sport",engine:"V6 Twin Turbo",hp:409,torque:479,zero60:5.2,topspeed:130,msrp:118495,astested:128000,mpg:"17 MPG",seats:5,maxseats:5,cargo:83.1,tow:8000,suspension:"Air / AVS",nvh:"Excellent",warranty:"4yr/50k",jdpower:"84/100",colors:["Caviar","Nori Green Pearl","Cloudburst Gray","Sonic Titanium","Iridium","Ultra White","Atomic Silver"],img_url:"https://www.lexus.com/models/LX/gallery",config_url:"https://www.lexus.com/configurator/"},
-   {id:"gx24ot",name:"2024 GX 550 Overtrail+ Premium",engine:"V6 Twin Turbo",hp:349,torque:479,zero60:6.2,topspeed:124,msrp:77450,astested:88000,mpg:"18 MPG",seats:5,maxseats:5,cargo:76.1,tow:6000,suspension:"Kinetic Dynamic",nvh:"Very Good",warranty:"4yr/50k",jdpower:"87/100",colors:["Nebula Gray Pearl","Smoky Granite Mica","Nori Green Pearl","Cloudburst Gray","Nightfall Mica","Ultra White","Atomic Silver"],img_url:"https://www.lexus.com/models/GX/gallery",config_url:"https://www.lexus.com/configurator/"},
-   {id:"gx24p",name:"2024 GX 550 Premium+",engine:"V6 Twin Turbo",hp:349,torque:479,zero60:6.5,topspeed:124,msrp:67250,astested:78000,mpg:"18 MPG",seats:5,maxseats:7,cargo:76.1,tow:6000,suspension:"Kinetic Dynamic",nvh:"Very Good",warranty:"4yr/50k",jdpower:"87/100",colors:["Nebula Gray Pearl","Smoky Granite Mica","Nori Green Pearl","Cloudburst Gray","Nightfall Mica","Ultra White","Atomic Silver"],img_url:"https://www.lexus.com/models/GX/gallery",config_url:"https://www.lexus.com/configurator/"},
+   {id:"lx24ul",name:"LX 600 Ultra Luxury",engine:"V6 Twin Turbo",hp:409,torque:479,zero60:5.2,topspeed:130,msrp:131195,astested:147000,mpg:"17 MPG",seats:4,maxseats:7,cargo:83.1,tow:8000,suspension:"Air",nvh:"Excellent",warranty:"4yr/50k",jdpower:"84/100",colors:["Caviar","Nori Green Pearl","Cloudburst Gray","Sonic Titanium","Iridium","Moonbeam","Ultra White","Atomic Silver"],img_url:"https://www.lexus.com/models/LX/gallery",config_url:"https://www.lexus.com/configurator/"},
+   {id:"lx24fs",name:"LX 600 F Sport",engine:"V6 Twin Turbo",hp:409,torque:479,zero60:5.2,topspeed:130,msrp:118495,astested:128000,mpg:"17 MPG",seats:5,maxseats:5,cargo:83.1,tow:8000,suspension:"Air / AVS",nvh:"Excellent",warranty:"4yr/50k",jdpower:"84/100",colors:["Caviar","Nori Green Pearl","Cloudburst Gray","Sonic Titanium","Iridium","Ultra White","Atomic Silver"],img_url:"https://www.lexus.com/models/LX/gallery",config_url:"https://www.lexus.com/configurator/"},
+   {id:"gx24ot",name:"GX 550 Overtrail+ Premium",engine:"V6 Twin Turbo",hp:349,torque:479,zero60:6.2,topspeed:124,msrp:77450,astested:88000,mpg:"18 MPG",seats:5,maxseats:5,cargo:76.1,tow:6000,suspension:"Kinetic Dynamic",nvh:"Very Good",warranty:"4yr/50k",jdpower:"87/100",colors:["Nebula Gray Pearl","Smoky Granite Mica","Nori Green Pearl","Cloudburst Gray","Nightfall Mica","Ultra White","Atomic Silver"],img_url:"https://www.lexus.com/models/GX/gallery",config_url:"https://www.lexus.com/configurator/"},
+   {id:"gx24p",name:"GX 550 Premium+",engine:"V6 Twin Turbo",hp:349,torque:479,zero60:6.5,topspeed:124,msrp:67250,astested:78000,mpg:"18 MPG",seats:5,maxseats:7,cargo:76.1,tow:6000,suspension:"Kinetic Dynamic",nvh:"Very Good",warranty:"4yr/50k",jdpower:"87/100",colors:["Nebula Gray Pearl","Smoky Granite Mica","Nori Green Pearl","Cloudburst Gray","Nightfall Mica","Ultra White","Atomic Silver"],img_url:"https://www.lexus.com/models/GX/gallery",config_url:"https://www.lexus.com/configurator/"},
   ],
   current_lc:[
-   {id:"lc25_1958",name:"2025 Land Cruiser 1958 Edition",engine:"I4 Twin-Turbo Hybrid (i-FORCE MAX)",hp:326,torque:465,zero60:7.2,topspeed:112,msrp:56450,astested:61000,mpg:"22 MPG",seats:5,maxseats:5,cargo:82.1,tow:6000,suspension:"Coil / TAS",nvh:"Good",warranty:"5yr/60k (Hybrid: 10yr/150k)",jdpower:"N/A (new)",colors:["Heritage Blue","Ice Cap","Cavalry Blue","Solar Octane","Supersonic Red","Midnight Black Metallic","Underground"],img_url:"https://www.toyota.com/landcruiser",config_url:"https://www.toyota.com/configurator/pub/ext/#/builds/toyota"},
-   {id:"lc25_std",name:"2025 Land Cruiser Standard",engine:"I4 Twin-Turbo Hybrid (i-FORCE MAX)",hp:326,torque:465,zero60:7.0,topspeed:112,msrp:62450,astested:70000,mpg:"22 MPG",seats:5,maxseats:5,cargo:82.1,tow:6000,suspension:"Coil / TAS",nvh:"Good",warranty:"5yr/60k (Hybrid: 10yr/150k)",jdpower:"N/A",colors:["Ice Cap","Heritage Blue","Cavalry Blue","Solar Octane","Supersonic Red","Midnight Black Metallic","Underground","Army Green"],img_url:"https://www.toyota.com/landcruiser",config_url:"https://www.toyota.com/configurator/pub/ext/#/builds/toyota"},
-   {id:"lc25_fe",name:"2024 Land Cruiser First Edition",engine:"I4 Twin-Turbo Hybrid (i-FORCE MAX)",hp:326,torque:465,zero60:7.0,topspeed:112,msrp:74950,astested:80000,mpg:"22 MPG",seats:5,maxseats:5,cargo:82.1,tow:6000,suspension:"Coil / TAS",nvh:"Good",warranty:"5yr/60k (Hybrid: 10yr/150k)",jdpower:"N/A",colors:["Ice Cap","Midnight Black Metallic","Underground","Army Green"],img_url:"https://www.toyota.com/landcruiser",config_url:"https://www.toyota.com/configurator/pub/ext/#/builds/toyota"},
+   {id:"lc25_1958",name:"Land Cruiser 1958 Edition",engine:"I4 Twin-Turbo Hybrid (i-FORCE MAX)",hp:326,torque:465,zero60:7.2,topspeed:112,msrp:56450,astested:61000,mpg:"22 MPG",seats:5,maxseats:5,cargo:82.1,tow:6000,suspension:"Coil / TAS",nvh:"Good",warranty:"5yr/60k (Hybrid: 10yr/150k)",jdpower:"N/A (new)",colors:["Heritage Blue","Ice Cap","Cavalry Blue","Solar Octane","Supersonic Red","Midnight Black Metallic","Underground"],img_url:"https://www.toyota.com/landcruiser",config_url:"https://www.toyota.com/configurator/pub/ext/#/builds/toyota"},
+   {id:"lc25_std",name:"Land Cruiser Standard",engine:"I4 Twin-Turbo Hybrid (i-FORCE MAX)",hp:326,torque:465,zero60:7.0,topspeed:112,msrp:62450,astested:70000,mpg:"22 MPG",seats:5,maxseats:5,cargo:82.1,tow:6000,suspension:"Coil / TAS",nvh:"Good",warranty:"5yr/60k (Hybrid: 10yr/150k)",jdpower:"N/A",colors:["Ice Cap","Heritage Blue","Cavalry Blue","Solar Octane","Supersonic Red","Midnight Black Metallic","Underground","Army Green"],img_url:"https://www.toyota.com/landcruiser",config_url:"https://www.toyota.com/configurator/pub/ext/#/builds/toyota"},
+   {id:"lc25_fe",name:"Land Cruiser First Edition",engine:"I4 Twin-Turbo Hybrid (i-FORCE MAX)",hp:326,torque:465,zero60:7.0,topspeed:112,msrp:74950,astested:80000,mpg:"22 MPG",seats:5,maxseats:5,cargo:82.1,tow:6000,suspension:"Coil / TAS",nvh:"Good",warranty:"5yr/60k (Hybrid: 10yr/150k)",jdpower:"N/A",colors:["Ice Cap","Midnight Black Metallic","Underground","Army Green"],img_url:"https://www.toyota.com/landcruiser",config_url:"https://www.toyota.com/configurator/pub/ext/#/builds/toyota"},
   ]
  }},
  {name:"Porsche",vehicles:{
   current:[
-   {id:"cte24",name:"2024 Cayenne Turbo E-Hybrid",engine:"V8 Biturbo + Electric",hp:739,torque:774,zero60:3.7,topspeed:183,msrp:161900,astested:195000,mpg:"47 MPGe",seats:5,maxseats:5,cargo:62.4,tow:7716,suspension:"Air / PASM",nvh:"Excellent",warranty:"4yr/50k",jdpower:"90/100",colors:["Jet Black Metallic","Carrara White Metallic","GT Silver Metallic","Mahogany Metallic","Dolomite Silver Metallic","Gentian Blue Metallic","Mamba Green Metallic","Frozen Blue Metallic"],img_url:"https://www.porsche.com/usa/models/cayenne/",config_url:"https://cc.porsche.com/icc_euro/ccCall.do?userID=US&lang=en&PARAM=parameter_internet_US&modelCode=9YB"},
-   {id:"cgts24",name:"2024 Cayenne GTS",engine:"V8 Biturbo",hp:473,torque:457,zero60:4.5,topspeed:167,msrp:113200,astested:135000,mpg:"18 MPG",seats:5,maxseats:5,cargo:62.4,tow:7716,suspension:"Air / PASM Sport",nvh:"Excellent",warranty:"4yr/50k",jdpower:"90/100",colors:["Jet Black Metallic","Carrara White Metallic","GT Silver Metallic","Crayon","Gentian Blue Metallic","Papaya Metallic","Mamba Green Metallic"],img_url:"https://www.porsche.com/usa/models/cayenne/",config_url:"https://cc.porsche.com/icc_euro/ccCall.do?userID=US&lang=en&PARAM=parameter_internet_US&modelCode=9YB"},
-   {id:"cs24",name:"2024 Cayenne S",engine:"V6 Biturbo",hp:474,torque:442,zero60:4.7,topspeed:165,msrp:89900,astested:112000,mpg:"21 MPG",seats:5,maxseats:5,cargo:62.4,tow:7716,suspension:"Air / PASM",nvh:"Excellent",warranty:"4yr/50k",jdpower:"88/100",colors:["Jet Black Metallic","Carrara White Metallic","GT Silver Metallic","Crayon","Gentian Blue Metallic","Chalk","Dolomite Silver Metallic"],img_url:"https://www.porsche.com/usa/models/cayenne/",config_url:"https://cc.porsche.com/icc_euro/ccCall.do?userID=US&lang=en&PARAM=parameter_internet_US&modelCode=9YB"},
-   {id:"ctgt24",name:"2024 Cayenne Coupe Turbo GT",engine:"V8 Biturbo",hp:729,torque:590,zero60:3.3,topspeed:186,msrp:196900,astested:225000,mpg:"17 MPG",seats:4,maxseats:4,cargo:52.3,tow:7716,suspension:"Air / PDCC Sport",nvh:"Excellent",warranty:"4yr/50k",jdpower:"92/100",colors:["Jet Black Metallic","Carrara White Metallic","GT Silver Metallic","Frozen Blue Metallic","Mamba Green Metallic","Papaya Metallic"],img_url:"https://www.porsche.com/usa/models/cayenne/",config_url:"https://cc.porsche.com/icc_euro/ccCall.do?userID=US&lang=en&PARAM=parameter_internet_US&modelCode=9YBC"},
+   {id:"cte24",name:"Cayenne Turbo E-Hybrid",engine:"V8 Biturbo + Electric",hp:739,torque:774,zero60:3.7,topspeed:183,msrp:161900,astested:195000,mpg:"47 MPGe",seats:5,maxseats:5,cargo:62.4,tow:7716,suspension:"Air / PASM",nvh:"Excellent",warranty:"4yr/50k",jdpower:"90/100",colors:["Jet Black Metallic","Carrara White Metallic","GT Silver Metallic","Mahogany Metallic","Dolomite Silver Metallic","Gentian Blue Metallic","Mamba Green Metallic","Frozen Blue Metallic"],img_url:"https://www.porsche.com/usa/models/cayenne/",config_url:"https://cc.porsche.com/icc_euro/ccCall.do?userID=US&lang=en&PARAM=parameter_internet_US&modelCode=9YB"},
+   {id:"cgts24",name:"Cayenne GTS",engine:"V8 Biturbo",hp:473,torque:457,zero60:4.5,topspeed:167,msrp:113200,astested:135000,mpg:"18 MPG",seats:5,maxseats:5,cargo:62.4,tow:7716,suspension:"Air / PASM Sport",nvh:"Excellent",warranty:"4yr/50k",jdpower:"90/100",colors:["Jet Black Metallic","Carrara White Metallic","GT Silver Metallic","Crayon","Gentian Blue Metallic","Papaya Metallic","Mamba Green Metallic"],img_url:"https://www.porsche.com/usa/models/cayenne/",config_url:"https://cc.porsche.com/icc_euro/ccCall.do?userID=US&lang=en&PARAM=parameter_internet_US&modelCode=9YB"},
+   {id:"cs24",name:"Cayenne S",engine:"V6 Biturbo",hp:474,torque:442,zero60:4.7,topspeed:165,msrp:89900,astested:112000,mpg:"21 MPG",seats:5,maxseats:5,cargo:62.4,tow:7716,suspension:"Air / PASM",nvh:"Excellent",warranty:"4yr/50k",jdpower:"88/100",colors:["Jet Black Metallic","Carrara White Metallic","GT Silver Metallic","Crayon","Gentian Blue Metallic","Chalk","Dolomite Silver Metallic"],img_url:"https://www.porsche.com/usa/models/cayenne/",config_url:"https://cc.porsche.com/icc_euro/ccCall.do?userID=US&lang=en&PARAM=parameter_internet_US&modelCode=9YB"},
+   {id:"ctgt24",name:"Cayenne Coupe Turbo GT",engine:"V8 Biturbo",hp:729,torque:590,zero60:3.3,topspeed:186,msrp:196900,astested:225000,mpg:"17 MPG",seats:4,maxseats:4,cargo:52.3,tow:7716,suspension:"Air / PDCC Sport",nvh:"Excellent",warranty:"4yr/50k",jdpower:"92/100",colors:["Jet Black Metallic","Carrara White Metallic","GT Silver Metallic","Frozen Blue Metallic","Mamba Green Metallic","Papaya Metallic"],img_url:"https://www.porsche.com/usa/models/cayenne/",config_url:"https://cc.porsche.com/icc_euro/ccCall.do?userID=US&lang=en&PARAM=parameter_internet_US&modelCode=9YBC"},
   ]
  }},
  {name:"BMW",vehicles:{
   current:[
-   {id:"x7m24",name:"2024 X7 M60i xDrive",engine:"V8 Biturbo",hp:523,torque:553,zero60:4.7,topspeed:155,msrp:103400,astested:124000,mpg:"16 MPG",seats:7,maxseats:7,cargo:90.4,tow:7500,suspension:"Air",nvh:"Excellent",warranty:"4yr/50k",jdpower:"85/100",colors:["Carbon Black Metallic","Mineral White Metallic","Dravit Grey Metallic","Phytonic Blue Metallic","Tanzanite Blue Metallic","Sparkling Copper Metallic","Thundernight Metallic"],img_url:"https://www.bmwusa.com/vehicles/x-series/x7/sports-activity-vehicle/gallery.html",config_url:"https://www.bmwusa.com/configurator.html"},
-   {id:"x740",name:"2024 X7 xDrive40i",engine:"I6 Turbo",hp:375,torque:398,zero60:5.8,topspeed:130,msrp:84100,astested:99000,mpg:"21 MPG",seats:7,maxseats:7,cargo:90.4,tow:7500,suspension:"Air",nvh:"Excellent",warranty:"4yr/50k",jdpower:"83/100",colors:["Carbon Black Metallic","Mineral White Metallic","Dravit Grey Metallic","Phytonic Blue Metallic","Tanzanite Blue Metallic","Sparkling Copper Metallic","Brooklyn Grey Metallic"],img_url:"https://www.bmwusa.com/vehicles/x-series/x7/sports-activity-vehicle/gallery.html",config_url:"https://www.bmwusa.com/configurator.html"},
-   {id:"x5mc24",name:"2024 X5 M Competition",engine:"V8 Biturbo",hp:617,torque:553,zero60:3.8,topspeed:155,msrp:113400,astested:135000,mpg:"15 MPG",seats:5,maxseats:5,cargo:72.3,tow:6000,suspension:"Air M",nvh:"Excellent",warranty:"4yr/50k",jdpower:"87/100",colors:["Carbon Black Metallic","Mineral White Metallic","Marina Bay Blue Metallic","Frozen Grey Metallic","Donington Grey Metallic","Isle of Man Green Metallic"],img_url:"https://www.bmwusa.com/vehicles/m-series/x5-m/sports-activity-vehicle/gallery.html",config_url:"https://www.bmwusa.com/configurator.html"},
-   {id:"x5pe24",name:"2024 X5 xDrive50e PHEV",engine:"I6 Turbo + Electric",hp:483,torque:516,zero60:4.6,topspeed:130,msrp:74100,astested:90000,mpg:"50 MPGe",seats:5,maxseats:5,cargo:72.3,tow:6000,suspension:"Air",nvh:"Excellent",warranty:"4yr/50k",jdpower:"86/100",colors:["Carbon Black Metallic","Mineral White Metallic","Phytonic Blue Metallic","Dravit Grey Metallic","Sparkling Copper Metallic","Sanremo Green Metallic"],img_url:"https://www.bmwusa.com/vehicles/x-series/x5/sports-activity-vehicle/gallery.html",config_url:"https://www.bmwusa.com/configurator.html"},
-   {id:"xm24",name:"2025 BMW XM",engine:"V8 PHEV",hp:644,torque:590,zero60:4.1,topspeed:155,msrp:160500,astested:185000,mpg:"14 MPGe / 31mi EV",seats:5,maxseats:5,cargo:18.6,tow:5952,suspension:"Adaptive Air",nvh:"Good",warranty:"4yr/50k",jdpower:"N/A",colors:["Black Sapphire Metallic","Skyscraper Grey Metallic","Frozen Pure Grey","Thundernight Metallic","Isle of Man Green Metallic","Sao Paulo Yellow","Toronto Red"],img_url:"https://www.bmwusa.com/vehicles/m-series/xm/bmw-xm.html",config_url:"https://www.bmwusa.com/"},
-   {id:"xm_label",name:"2025 BMW XM Label Red",engine:"V8 PHEV",hp:738,torque:738,zero60:3.6,topspeed:155,msrp:186700,astested:195000,mpg:"14 MPGe / 31mi EV",seats:5,maxseats:5,cargo:18.6,tow:5952,suspension:"Adaptive Air",nvh:"Good",warranty:"4yr/50k",jdpower:"N/A",colors:["Isle of Man Green Metallic","Black Sapphire Metallic","Frozen Pure Grey","Skyscraper Grey Metallic","Thundernight Metallic","Sao Paulo Yellow","Tanzanite Blue Metallic"],img_url:"https://www.bmwusa.com/vehicles/m-series/xm/bmw-xm.html",config_url:"https://www.bmwusa.com/"},
-   {id:"x3_30",name:"2025 BMW X3 xDrive30",engine:"I4 Mild Hybrid",hp:255,torque:295,zero60:6.0,topspeed:130,msrp:51125,astested:62000,mpg:"26/33/29 MPG",seats:5,maxseats:5,cargo:21.7,tow:4001,suspension:"Adaptive",nvh:"Very Good",warranty:"4yr/50k",jdpower:"N/A",colors:["Black Sapphire Metallic","Alpine White","Brooklyn Grey Metallic","Mineral White Metallic","Phytonic Blue Metallic","Skyscraper Grey Metallic","Arctic Race Blue Metallic","Sparkling Copper Metallic"],img_url:"https://www.bmwusa.com/vehicles/x-series/x3/bmw-x3.html",config_url:"https://www.bmwusa.com/"},
-   {id:"x3_m50",name:"2025 BMW X3 M50 xDrive",engine:"I6 Mild Hybrid M",hp:393,torque:428,zero60:4.4,topspeed:155,msrp:65875,astested:78000,mpg:"22/29/25 MPG",seats:5,maxseats:5,cargo:21.7,tow:4850,suspension:"Adaptive M Sport",nvh:"Very Good",warranty:"4yr/50k",jdpower:"N/A",colors:["Black Sapphire Metallic","Alpine White","Brooklyn Grey Metallic","Mineral White Metallic","Phytonic Blue Metallic","Skyscraper Grey Metallic","Dravit Grey Metallic","M Brooklyn Grey Metallic"],img_url:"https://www.bmwusa.com/vehicles/m-series/x3-m50/bmw-x3-m50.html",config_url:"https://www.bmwusa.com/"},
+   {id:"x7m24",name:"X7 M60i xDrive",engine:"V8 Biturbo",hp:523,torque:553,zero60:4.7,topspeed:155,msrp:103400,astested:124000,mpg:"16 MPG",seats:7,maxseats:7,cargo:90.4,tow:7500,suspension:"Air",nvh:"Excellent",warranty:"4yr/50k",jdpower:"85/100",colors:["Carbon Black Metallic","Mineral White Metallic","Dravit Grey Metallic","Phytonic Blue Metallic","Tanzanite Blue Metallic","Sparkling Copper Metallic","Thundernight Metallic"],img_url:"https://www.bmwusa.com/vehicles/x-series/x7/sports-activity-vehicle/gallery.html",config_url:"https://www.bmwusa.com/configurator.html"},
+   {id:"x740",name:"X7 xDrive40i",engine:"I6 Turbo",hp:375,torque:398,zero60:5.8,topspeed:130,msrp:84100,astested:99000,mpg:"21 MPG",seats:7,maxseats:7,cargo:90.4,tow:7500,suspension:"Air",nvh:"Excellent",warranty:"4yr/50k",jdpower:"83/100",colors:["Carbon Black Metallic","Mineral White Metallic","Dravit Grey Metallic","Phytonic Blue Metallic","Tanzanite Blue Metallic","Sparkling Copper Metallic","Brooklyn Grey Metallic"],img_url:"https://www.bmwusa.com/vehicles/x-series/x7/sports-activity-vehicle/gallery.html",config_url:"https://www.bmwusa.com/configurator.html"},
+   {id:"x5mc24",name:"X5 M Competition",engine:"V8 Biturbo",hp:617,torque:553,zero60:3.8,topspeed:155,msrp:113400,astested:135000,mpg:"15 MPG",seats:5,maxseats:5,cargo:72.3,tow:6000,suspension:"Air M",nvh:"Excellent",warranty:"4yr/50k",jdpower:"87/100",colors:["Carbon Black Metallic","Mineral White Metallic","Marina Bay Blue Metallic","Frozen Grey Metallic","Donington Grey Metallic","Isle of Man Green Metallic"],img_url:"https://www.bmwusa.com/vehicles/m-series/x5-m/sports-activity-vehicle/gallery.html",config_url:"https://www.bmwusa.com/configurator.html"},
+   {id:"x5pe24",name:"X5 xDrive50e PHEV",engine:"I6 Turbo + Electric",hp:483,torque:516,zero60:4.6,topspeed:130,msrp:74100,astested:90000,mpg:"50 MPGe",seats:5,maxseats:5,cargo:72.3,tow:6000,suspension:"Air",nvh:"Excellent",warranty:"4yr/50k",jdpower:"86/100",colors:["Carbon Black Metallic","Mineral White Metallic","Phytonic Blue Metallic","Dravit Grey Metallic","Sparkling Copper Metallic","Sanremo Green Metallic"],img_url:"https://www.bmwusa.com/vehicles/x-series/x5/sports-activity-vehicle/gallery.html",config_url:"https://www.bmwusa.com/configurator.html"},
+   {id:"xm24",name:"BMW XM",engine:"V8 PHEV",hp:644,torque:590,zero60:4.1,topspeed:155,msrp:160500,astested:185000,mpg:"14 MPGe / 31mi EV",seats:5,maxseats:5,cargo:18.6,tow:5952,suspension:"Adaptive Air",nvh:"Good",warranty:"4yr/50k",jdpower:"N/A",colors:["Black Sapphire Metallic","Skyscraper Grey Metallic","Frozen Pure Grey","Thundernight Metallic","Isle of Man Green Metallic","Sao Paulo Yellow","Toronto Red"],img_url:"https://www.bmwusa.com/vehicles/m-series/xm/bmw-xm.html",config_url:"https://www.bmwusa.com/"},
+   {id:"xm_label",name:"BMW XM Label Red",engine:"V8 PHEV",hp:738,torque:738,zero60:3.6,topspeed:155,msrp:186700,astested:195000,mpg:"14 MPGe / 31mi EV",seats:5,maxseats:5,cargo:18.6,tow:5952,suspension:"Adaptive Air",nvh:"Good",warranty:"4yr/50k",jdpower:"N/A",colors:["Isle of Man Green Metallic","Black Sapphire Metallic","Frozen Pure Grey","Skyscraper Grey Metallic","Thundernight Metallic","Sao Paulo Yellow","Tanzanite Blue Metallic"],img_url:"https://www.bmwusa.com/vehicles/m-series/xm/bmw-xm.html",config_url:"https://www.bmwusa.com/"},
+   {id:"x3_30",name:"BMW X3 xDrive30",engine:"I4 Mild Hybrid",hp:255,torque:295,zero60:6.0,topspeed:130,msrp:51125,astested:62000,mpg:"26/33/29 MPG",seats:5,maxseats:5,cargo:21.7,tow:4001,suspension:"Adaptive",nvh:"Very Good",warranty:"4yr/50k",jdpower:"N/A",colors:["Black Sapphire Metallic","Alpine White","Brooklyn Grey Metallic","Mineral White Metallic","Phytonic Blue Metallic","Skyscraper Grey Metallic","Arctic Race Blue Metallic","Sparkling Copper Metallic"],img_url:"https://www.bmwusa.com/vehicles/x-series/x3/bmw-x3.html",config_url:"https://www.bmwusa.com/"},
+   {id:"x3_m50",name:"BMW X3 M50 xDrive",engine:"I6 Mild Hybrid M",hp:393,torque:428,zero60:4.4,topspeed:155,msrp:65875,astested:78000,mpg:"22/29/25 MPG",seats:5,maxseats:5,cargo:21.7,tow:4850,suspension:"Adaptive M Sport",nvh:"Very Good",warranty:"4yr/50k",jdpower:"N/A",colors:["Black Sapphire Metallic","Alpine White","Brooklyn Grey Metallic","Mineral White Metallic","Phytonic Blue Metallic","Skyscraper Grey Metallic","Dravit Grey Metallic","M Brooklyn Grey Metallic"],img_url:"https://www.bmwusa.com/vehicles/m-series/x3-m50/bmw-x3-m50.html",config_url:"https://www.bmwusa.com/"},
   ]
  }},
 ,
@@ -1187,10 +1236,10 @@ const GWAGON_BRAND = {
   name: "Mercedes-Benz G-Wagon",
   vehicles: {
     current: [
-      {id:"gw_g63",    name:"2024 AMG G 63 4x4",          engine:"V8 Biturbo",      hp:577, torque:627, zero60:4.4, topspeed:130, msrp:179500,  astested:215000, mpg:"13 MPG",  seats:5, maxseats:5, cargo:26.0, tow:7000, suspension:"3-link solid axle", nvh:"Good",      warranty:"4yr/50k", jdpower:"84/100", colors:["Obsidian Black","Polar White","Selenite Grey","Iridium Silver","AMG Lunar Grey","Emerald Green","Rubellite Red"], img_url:"https://www.mbusa.com/en/vehicles/class/g-class/suv", config_url:"https://www.mbusa.com/en/build/"},
-      {id:"gw_g550",   name:"2024 G 550 4MATIC",           engine:"V8 Biturbo",      hp:422, torque:450, zero60:5.6, topspeed:130, msrp:142800,  astested:168000, mpg:"14 MPG",  seats:5, maxseats:5, cargo:26.0, tow:7000, suspension:"3-link solid axle", nvh:"Good",      warranty:"4yr/50k", jdpower:"82/100", colors:["Obsidian Black","Polar White","Selenite Grey","Iridium Silver","AMG Night Black","Designo Hyacinth Red","Brilliant Blue"], img_url:"https://www.mbusa.com/en/vehicles/class/g-class/suv", config_url:"https://www.mbusa.com/en/build/"},
-      {id:"gw_g580ev", name:"2025 G 580 EQ 4MATIC (EV)",   engine:"Quad Electric",   hp:579, torque:859, zero60:4.7, topspeed:111, msrp:162500,  astested:188000, mpg:"56 MPGe", seats:5, maxseats:5, cargo:26.0, tow:7000, suspension:"3-link solid axle", nvh:"Very Good", warranty:"4yr/50k", jdpower:"N/A (new)", colors:["Obsidian Black","Polar White","Selenite Grey","Iridium Silver","AMG Night Black"], img_url:"https://www.mbusa.com/en/vehicles/class/g-class/suv", config_url:"https://www.mbusa.com/en/build/"},
-      {id:"gw_g63sq",  name:"2024 AMG G 63 4x4 Squared",   engine:"V8 Biturbo",      hp:577, torque:627, zero60:5.0, topspeed:112, msrp:250000,  astested:290000, mpg:"11 MPG",  seats:5, maxseats:5, cargo:22.0, tow:5500, suspension:"Portal axle 4x4sq",  nvh:"Fair",      warranty:"4yr/50k", jdpower:"N/A", colors:["Obsidian Black","Polar White","Designo Hyacinth Red","AMG Night Black"], img_url:"https://www.mbusa.com/en/vehicles/class/g-class/suv", config_url:"https://www.mbusa.com/en/build/"},
+      {id:"gw_g63",    name:"AMG G 63 4x4",          engine:"V8 Biturbo",      hp:577, torque:627, zero60:4.4, topspeed:130, msrp:179500,  astested:215000, mpg:"13 MPG",  seats:5, maxseats:5, cargo:26.0, tow:7000, suspension:"3-link solid axle", nvh:"Good",      warranty:"4yr/50k", jdpower:"84/100", colors:["Obsidian Black","Polar White","Selenite Grey","Iridium Silver","AMG Lunar Grey","Emerald Green","Rubellite Red"], img_url:"https://www.mbusa.com/en/vehicles/class/g-class/suv", config_url:"https://www.mbusa.com/en/build/"},
+      {id:"gw_g550",   name:"G 550 4MATIC",           engine:"V8 Biturbo",      hp:422, torque:450, zero60:5.6, topspeed:130, msrp:142800,  astested:168000, mpg:"14 MPG",  seats:5, maxseats:5, cargo:26.0, tow:7000, suspension:"3-link solid axle", nvh:"Good",      warranty:"4yr/50k", jdpower:"82/100", colors:["Obsidian Black","Polar White","Selenite Grey","Iridium Silver","AMG Night Black","Designo Hyacinth Red","Brilliant Blue"], img_url:"https://www.mbusa.com/en/vehicles/class/g-class/suv", config_url:"https://www.mbusa.com/en/build/"},
+      {id:"gw_g580ev", name:"G 580 EQ 4MATIC (EV)",   engine:"Quad Electric",   hp:579, torque:859, zero60:4.7, topspeed:111, msrp:162500,  astested:188000, mpg:"56 MPGe", seats:5, maxseats:5, cargo:26.0, tow:7000, suspension:"3-link solid axle", nvh:"Very Good", warranty:"4yr/50k", jdpower:"N/A (new)", colors:["Obsidian Black","Polar White","Selenite Grey","Iridium Silver","AMG Night Black"], img_url:"https://www.mbusa.com/en/vehicles/class/g-class/suv", config_url:"https://www.mbusa.com/en/build/"},
+      {id:"gw_g63sq",  name:"AMG G 63 4x4 Squared",   engine:"V8 Biturbo",      hp:577, torque:627, zero60:5.0, topspeed:112, msrp:250000,  astested:290000, mpg:"11 MPG",  seats:5, maxseats:5, cargo:22.0, tow:5500, suspension:"Portal axle 4x4sq",  nvh:"Fair",      warranty:"4yr/50k", jdpower:"N/A", colors:["Obsidian Black","Polar White","Designo Hyacinth Red","AMG Night Black"], img_url:"https://www.mbusa.com/en/vehicles/class/g-class/suv", config_url:"https://www.mbusa.com/en/build/"},
     ]
   }
 };
@@ -1200,10 +1249,10 @@ const VOLVO_BRAND = {
   name: "Volvo",
   vehicles: {
     current: [
-      {id:"v_xc90rt",  name:"2025 XC90 Recharge T8 Ultimate AWD",engine:"I4 + Electric PHEV", hp:455, torque:523, zero60:4.6, topspeed:112, msrp:79900, astested:96000,  mpg:"35 MPGe", seats:7, maxseats:7, cargo:85.7, tow:5000, suspension:"Air",          nvh:"Excellent", warranty:"4yr/50k", jdpower:"82/100", colors:["Onyx Black","Crystal White","Thunder Grey","Denim Blue","Fjord Blue","Sage Green","Mulberry Red","Silver Dawn"], img_url:"https://www.volvocars.com/en-us/cars/xc90/gallery", config_url:"https://www.volvocars.com/en-us/cars/xc90/configurator"},
-      {id:"v_xc90ult", name:"2025 XC90 B6 AWD Ultimate Dark",     engine:"I4 Mild Hybrid",   hp:300, torque:420, zero60:6.0, topspeed:112, msrp:66800, astested:80000,  mpg:"25 MPG",  seats:7, maxseats:7, cargo:85.7, tow:5000, suspension:"Air",          nvh:"Excellent", warranty:"4yr/50k", jdpower:"82/100", colors:["Onyx Black","Crystal White","Thunder Grey","Denim Blue","Fjord Blue","Sage Green","Mulberry Red"], img_url:"https://www.volvocars.com/en-us/cars/xc90/gallery", config_url:"https://www.volvocars.com/en-us/cars/xc90/configurator"},
-      {id:"v_xc60rt",  name:"2025 XC60 Recharge T8 Ultimate AWD", engine:"I4 + Electric PHEV", hp:455, torque:523, zero60:4.5, topspeed:112, msrp:69500, astested:84000,  mpg:"35 MPGe", seats:5, maxseats:5, cargo:63.3, tow:3500, suspension:"Air",          nvh:"Excellent", warranty:"4yr/50k", jdpower:"84/100", colors:["Onyx Black","Crystal White","Thunder Grey","Denim Blue","Fjord Blue","Sage Green","Mulberry Red","Silver Dawn"], img_url:"https://www.volvocars.com/en-us/cars/xc60/gallery", config_url:"https://www.volvocars.com/en-us/cars/xc60/configurator"},
-      {id:"v_xc60ult", name:"2025 XC60 B6 AWD Ultimate",          engine:"I4 Mild Hybrid",   hp:300, torque:420, zero60:5.8, topspeed:112, msrp:58000, astested:70000,  mpg:"24 MPG",  seats:5, maxseats:5, cargo:63.3, tow:3500, suspension:"Air",          nvh:"Excellent", warranty:"4yr/50k", jdpower:"84/100", colors:["Onyx Black","Crystal White","Thunder Grey","Denim Blue","Fjord Blue","Sage Green","Mulberry Red"], img_url:"https://www.volvocars.com/en-us/cars/xc60/gallery", config_url:"https://www.volvocars.com/en-us/cars/xc60/configurator"},
+      {id:"v_xc90rt",  name:"XC90 Recharge T8 Ultimate AWD",engine:"I4 + Electric PHEV", hp:455, torque:523, zero60:4.6, topspeed:112, msrp:79900, astested:96000,  mpg:"35 MPGe", seats:7, maxseats:7, cargo:85.7, tow:5000, suspension:"Air",          nvh:"Excellent", warranty:"4yr/50k", jdpower:"82/100", colors:["Onyx Black","Crystal White","Thunder Grey","Denim Blue","Fjord Blue","Sage Green","Mulberry Red","Silver Dawn"], img_url:"https://www.volvocars.com/en-us/cars/xc90/gallery", config_url:"https://www.volvocars.com/en-us/cars/xc90/configurator"},
+      {id:"v_xc90ult", name:"XC90 B6 AWD Ultimate Dark",     engine:"I4 Mild Hybrid",   hp:300, torque:420, zero60:6.0, topspeed:112, msrp:66800, astested:80000,  mpg:"25 MPG",  seats:7, maxseats:7, cargo:85.7, tow:5000, suspension:"Air",          nvh:"Excellent", warranty:"4yr/50k", jdpower:"82/100", colors:["Onyx Black","Crystal White","Thunder Grey","Denim Blue","Fjord Blue","Sage Green","Mulberry Red"], img_url:"https://www.volvocars.com/en-us/cars/xc90/gallery", config_url:"https://www.volvocars.com/en-us/cars/xc90/configurator"},
+      {id:"v_xc60rt",  name:"XC60 Recharge T8 Ultimate AWD", engine:"I4 + Electric PHEV", hp:455, torque:523, zero60:4.5, topspeed:112, msrp:69500, astested:84000,  mpg:"35 MPGe", seats:5, maxseats:5, cargo:63.3, tow:3500, suspension:"Air",          nvh:"Excellent", warranty:"4yr/50k", jdpower:"84/100", colors:["Onyx Black","Crystal White","Thunder Grey","Denim Blue","Fjord Blue","Sage Green","Mulberry Red","Silver Dawn"], img_url:"https://www.volvocars.com/en-us/cars/xc60/gallery", config_url:"https://www.volvocars.com/en-us/cars/xc60/configurator"},
+      {id:"v_xc60ult", name:"XC60 B6 AWD Ultimate",          engine:"I4 Mild Hybrid",   hp:300, torque:420, zero60:5.8, topspeed:112, msrp:58000, astested:70000,  mpg:"24 MPG",  seats:5, maxseats:5, cargo:63.3, tow:3500, suspension:"Air",          nvh:"Excellent", warranty:"4yr/50k", jdpower:"84/100", colors:["Onyx Black","Crystal White","Thunder Grey","Denim Blue","Fjord Blue","Sage Green","Mulberry Red"], img_url:"https://www.volvocars.com/en-us/cars/xc60/gallery", config_url:"https://www.volvocars.com/en-us/cars/xc60/configurator"},
     ]
   }
 };
@@ -1214,8 +1263,8 @@ const WAGON_BRANDS = [
     name: "Mercedes-Benz Wagons",
     vehicles: {
       current: [
-        {id:"w_e450at", name:"2025 E 450 4MATIC All-Terrain Wagon",      engine:"I6 Mild Hybrid",        hp:375, torque:369, zero60:4.7, topspeed:155, msrp:76100,  astested:94000,  mpg:"25 MPG",  seats:5, maxseats:5, cargo:35.6, tow:3500, suspension:"Air AIRMATIC", nvh:"Excellent", warranty:"4yr/50k", jdpower:"84/100", colors:["Obsidian Black","Polar White","Selenite Grey","Cavansite Blue","Emerald Green","Graphite Grey","Mojave Silver"], img_url:"https://www.mbusa.com/en/vehicles/class/e-class/wagon", config_url:"https://www.mbusa.com/en/build/"},
-        {id:"w_e53at",  name:"2025 AMG E 53 HYBRID 4MATIC+ Wagon",       engine:"I6 Turbo + Electric",   hp:577, torque:553, zero60:3.5, topspeed:168, msrp:101900, astested:122000, mpg:"42 MPGe", seats:5, maxseats:5, cargo:35.6, tow:3500, suspension:"Air AMG RIDE",  nvh:"Excellent", warranty:"4yr/50k", jdpower:"N/A", colors:["Obsidian Black","Polar White","Selenite Grey","Spectral Blue","Graphite Grey"], img_url:"https://www.mbusa.com/en/vehicles/class/e-class/wagon", config_url:"https://www.mbusa.com/en/build/"},
+        {id:"w_e450at", name:"E 450 4MATIC All-Terrain Wagon",      engine:"I6 Mild Hybrid",        hp:375, torque:369, zero60:4.7, topspeed:155, msrp:76100,  astested:94000,  mpg:"25 MPG",  seats:5, maxseats:5, cargo:35.6, tow:3500, suspension:"Air AIRMATIC", nvh:"Excellent", warranty:"4yr/50k", jdpower:"84/100", colors:["Obsidian Black","Polar White","Selenite Grey","Cavansite Blue","Emerald Green","Graphite Grey","Mojave Silver"], img_url:"https://www.mbusa.com/en/vehicles/class/e-class/wagon", config_url:"https://www.mbusa.com/en/build/"},
+        {id:"w_e53at",  name:"AMG E 53 HYBRID 4MATIC+ Wagon",       engine:"I6 Turbo + Electric",   hp:577, torque:553, zero60:3.5, topspeed:168, msrp:101900, astested:122000, mpg:"42 MPGe", seats:5, maxseats:5, cargo:35.6, tow:3500, suspension:"Air AMG RIDE",  nvh:"Excellent", warranty:"4yr/50k", jdpower:"N/A", colors:["Obsidian Black","Polar White","Selenite Grey","Spectral Blue","Graphite Grey"], img_url:"https://www.mbusa.com/en/vehicles/class/e-class/wagon", config_url:"https://www.mbusa.com/en/build/"},
       ]
     }
   },
@@ -1223,7 +1272,7 @@ const WAGON_BRANDS = [
     name: "Audi Wagons",
     vehicles: {
       current: [
-        {id:"w_rs6p",   name:"2024 RS6 Avant Performance",                engine:"V8 Biturbo",            hp:621, torque:627, zero60:3.3, topspeed:174, msrp:131900, astested:158000, mpg:"16 MPG",  seats:5, maxseats:5, cargo:30.7, tow:7700, suspension:"Air RS",      nvh:"Very Good", warranty:"4yr/50k", jdpower:"84/100", colors:["Mythos Black","Glacier White","Daytona Grey","Ascari Blue","Seville Red","Goodwood Green","Merlin Purple"], img_url:"https://www.audiusa.com/us/web/en/models/a6/rs6-avant/2024/overview.html", config_url:"https://www.audiusa.com/us/web/en/configurator.html"},
+        {id:"w_rs6p",   name:"RS6 Avant Performance",                engine:"V8 Biturbo",            hp:621, torque:627, zero60:3.3, topspeed:174, msrp:131900, astested:158000, mpg:"16 MPG",  seats:5, maxseats:5, cargo:30.7, tow:7700, suspension:"Air RS",      nvh:"Very Good", warranty:"4yr/50k", jdpower:"84/100", colors:["Mythos Black","Glacier White","Daytona Grey","Ascari Blue","Seville Red","Goodwood Green","Merlin Purple"], img_url:"https://www.audiusa.com/us/web/en/models/a6/rs6-avant/2024/overview.html", config_url:"https://www.audiusa.com/us/web/en/configurator.html"},
       ]
     }
   },
@@ -1231,7 +1280,7 @@ const WAGON_BRANDS = [
     name: "BMW Wagons",
     vehicles: {
       current: [
-        {id:"w_m5t",    name:"2025 M5 Touring xDrive (1st US M Wagon)",    engine:"V8 Biturbo + Electric", hp:717, torque:738, zero60:3.4, topspeed:190, msrp:121500, astested:145000, mpg:"25 MPGe", seats:5, maxseats:5, cargo:57.6, tow:4000, suspension:"Adaptive M",  nvh:"Excellent", warranty:"4yr/50k", jdpower:"N/A", colors:["Carbon Black","Mineral White","M Brooklyn Grey","Tanzanite Blue","M Skyscraper Grey","Isle of Man Green","Toronto Red"], img_url:"https://www.bmwusa.com/vehicles/m-series/m5-series/bmw-m5-touring.html", config_url:"https://www.bmwusa.com/configurator.html"},
+        {id:"w_m5t",    name:"M5 Touring xDrive (1st US M Wagon)",    engine:"V8 Biturbo + Electric", hp:717, torque:738, zero60:3.4, topspeed:190, msrp:121500, astested:145000, mpg:"25 MPGe", seats:5, maxseats:5, cargo:57.6, tow:4000, suspension:"Adaptive M",  nvh:"Excellent", warranty:"4yr/50k", jdpower:"N/A", colors:["Carbon Black","Mineral White","M Brooklyn Grey","Tanzanite Blue","M Skyscraper Grey","Isle of Man Green","Toronto Red"], img_url:"https://www.bmwusa.com/vehicles/m-series/m5-series/bmw-m5-touring.html", config_url:"https://www.bmwusa.com/configurator.html"},
       ]
     }
   },
@@ -1239,9 +1288,9 @@ const WAGON_BRANDS = [
     name: "Volvo Wagons",
     vehicles: {
       current: [
-        {id:"vw_v90rt", name:"2024 V90 Cross Country B6 AWD",              engine:"I4 Mild Hybrid",        hp:295, torque:310, zero60:6.0, topspeed:112, msrp:66200,  astested:78000,  mpg:"27 MPG",  seats:5, maxseats:5, cargo:53.9, tow:3500, suspension:"Air Adaptive", nvh:"Excellent", warranty:"4yr/50k", jdpower:"81/100", colors:["Onyx Black","Crystal White","Denim Blue","Fjord Blue","Sage Green","Silver Dawn","Pebble Grey"], img_url:"https://www.volvocars.com/en-us/cars/v90/gallery", config_url:"https://www.volvocars.com/en-us/cars/v90/configurator"},
-        {id:"vw_v60rt", name:"2024 V60 Cross Country B5 AWD",              engine:"I4 Mild Hybrid",        hp:247, torque:258, zero60:6.7, topspeed:112, msrp:52700,  astested:64000,  mpg:"28 MPG",  seats:5, maxseats:5, cargo:43.8, tow:3300, suspension:"Coil Adaptive", nvh:"Excellent", warranty:"4yr/50k", jdpower:"83/100", colors:["Onyx Black","Crystal White","Denim Blue","Fjord Blue","Sage Green","Thunder Grey","Silver Dawn"], img_url:"https://www.volvocars.com/en-us/cars/v60/gallery", config_url:"https://www.volvocars.com/en-us/cars/v60/configurator"},
-        {id:"vw_v60rt8",name:"2024 V60 Recharge T8 AWD Polestar Engineered",engine:"I4 + Electric PHEV",  hp:455, torque:523, zero60:4.5, topspeed:112, msrp:66300,  astested:76000,  mpg:"35 MPGe", seats:5, maxseats:5, cargo:43.8, tow:3300, suspension:"Ohlins Adaptive", nvh:"Very Good", warranty:"4yr/50k", jdpower:"N/A", colors:["Onyx Black","Crystal White","Thunder Grey","Denim Blue","Sage Green"], img_url:"https://www.volvocars.com/en-us/cars/v60/gallery", config_url:"https://www.volvocars.com/en-us/cars/v60/configurator"},
+        {id:"vw_v90rt", name:"V90 Cross Country B6 AWD",              engine:"I4 Mild Hybrid",        hp:295, torque:310, zero60:6.0, topspeed:112, msrp:66200,  astested:78000,  mpg:"27 MPG",  seats:5, maxseats:5, cargo:53.9, tow:3500, suspension:"Air Adaptive", nvh:"Excellent", warranty:"4yr/50k", jdpower:"81/100", colors:["Onyx Black","Crystal White","Denim Blue","Fjord Blue","Sage Green","Silver Dawn","Pebble Grey"], img_url:"https://www.volvocars.com/en-us/cars/v90/gallery", config_url:"https://www.volvocars.com/en-us/cars/v90/configurator"},
+        {id:"vw_v60rt", name:"V60 Cross Country B5 AWD",              engine:"I4 Mild Hybrid",        hp:247, torque:258, zero60:6.7, topspeed:112, msrp:52700,  astested:64000,  mpg:"28 MPG",  seats:5, maxseats:5, cargo:43.8, tow:3300, suspension:"Coil Adaptive", nvh:"Excellent", warranty:"4yr/50k", jdpower:"83/100", colors:["Onyx Black","Crystal White","Denim Blue","Fjord Blue","Sage Green","Thunder Grey","Silver Dawn"], img_url:"https://www.volvocars.com/en-us/cars/v60/gallery", config_url:"https://www.volvocars.com/en-us/cars/v60/configurator"},
+        {id:"vw_v60rt8",name:"V60 Recharge T8 AWD Polestar Engineered",engine:"I4 + Electric PHEV",  hp:455, torque:523, zero60:4.5, topspeed:112, msrp:66300,  astested:76000,  mpg:"35 MPGe", seats:5, maxseats:5, cargo:43.8, tow:3300, suspension:"Ohlins Adaptive", nvh:"Very Good", warranty:"4yr/50k", jdpower:"N/A", colors:["Onyx Black","Crystal White","Thunder Grey","Denim Blue","Sage Green"], img_url:"https://www.volvocars.com/en-us/cars/v60/gallery", config_url:"https://www.volvocars.com/en-us/cars/v60/configurator"},
       ]
     }
   },
@@ -1495,7 +1544,6 @@ const COLOR_NAME_MAP = {
 const THUMB = "https://commons.wikimedia.org/wiki/Special:FilePath/";
 let activeBrand = 0, activeWagon = -1;
 const scores = {}, imgIdx = {};
-try { var _saved = JSON.parse(localStorage.getItem('vp_scores')||'{}'); Object.assign(scores, _saved); } catch(e){}
 
 function applyThemeObj(t) {
   if (!t) return;
@@ -1612,15 +1660,6 @@ function selectWagon(i) {
   renderWagon();
 }
 
-function setScore(key, val) {
-  scores[key] = val;
-  try { localStorage.setItem('vp_scores', JSON.stringify(scores)); } catch(e){}
-  var row = document.querySelector('[data-skey="'+key+'"]');
-  if (!row) return;
-  row.querySelectorAll('.star').forEach(function(s,i){ s.classList.toggle('on', i<val); });
-  var n = document.getElementById('sn-'+key);
-  if (n) n.textContent = val+'/10';
-}
 
 function slide(key, dir) {
   var files = IMG_FILENAMES[key] || [];
@@ -1673,24 +1712,19 @@ function makeCard(v) {
         + '&#9654; BaT Listings</a>'
         + '</div>';
     }
-    variantHtml = '<div class="vn-toggle" data-vkey="' + key + '" onclick="toggleVariant(\'' + key + '\')">' 
-      + '<span class="vn-arrow">&#9658;</span>&nbsp;About this variant</div>'
-      + '<div class="variant-note" id="vn-' + key + '">' + vnote + vlinkHtml + '</div>';
+    variantHtml = '<div class="vn-always">'
+      + '<div class="vn-label">About this variant</div>'
+      + '<div class="vn-text">' + vnote + vlinkHtml + '</div>'
+      + '</div>';
   }
 
-  var starHtml = [1,2,3,4,5,6,7,8,9,10].map(function(n){
-    return '<span class="star'+(sc>=n?' on':'')+'" data-n="'+n+'">&#9733;</span>';
-  }).join('');
 
   return '<div class="card cg">'
     +'<div class="gal">'
     +'<div class="gal-imgs" id="gw-'+key+'" style="transform:translateX(-'+((imgIdx[key]||0)*100)+'%)">'+imgSlides+'</div>'
     +arrows+dots
     +'<div class="badge bc">Current Gen</div>'
-    +'<div class="glinks">'
-    +'<a href="'+v.img_url+'" target="_blank" class="glink" rel="noopener">Gallery &#8599;</a>'
-    +'<a href="'+v.config_url+'" target="_blank" class="glink" rel="noopener">Build &#8599;</a>'
-    +'</div></div>'
+    +'</div>'
     +'<div class="cbody">'
     +'<div class="cname">'+v.name+'</div>'
     +'<div class="price-row"><span class="price">$'+v.msrp.toLocaleString()+'</span><span class="plabel"> base MSRP</span></div>'
@@ -1708,19 +1742,13 @@ function makeCard(v) {
     +'<div class="sp"><span class="sl">JD Power</span><span class="sv">'+v.jdpower+'</span></div>'
     +'</div>'
     +'<div class="colors"><div class="clbl">Colors ('+v.colors.length+')</div><div class="chips">'+chipHtml+'</div></div>'
+    + variantHtml
     +'<div class="clinks">'
-    +'<a href="'+v.img_url+'" target="_blank" class="cl cl-g" rel="noopener">Gallery &#8599;</a>'
-    +'<a href="'+v.config_url+'" target="_blank" class="cl cl-c" rel="noopener">Build &amp; Price &#8599;</a>'
-    +(FOCUS_PAGES[key] ? '<a href="'+FOCUS_PAGES[key]+'" class="cl cl-f">&#9654; Focus Page</a>' : '')
+    +'<a href="'+v.img_url+'" target="_blank" class="cl cl-g" rel="noopener">Gallery (WIP) &#8599;</a>'
+    +'<a href="'+v.config_url+'" target="_blank" class="cl cl-c" rel="noopener">Build &amp; Price (WIP) &#8599;</a>'
+    +(FOCUS_PAGES[key] ? '<a href="'+FOCUS_PAGES[key]+'" class="cl cl-f">Deep Dive</a>' : '')
     +(HOOD_PAGES[key] ? '<button class="cl cl-h" data-hood="'+key+'">&#9961; Under the Hood</button>' : '')
     +'</div>'
-    +'<div class="card-score-area">'
-    +'<div class="score-label">Your Score</div>'
-    +'<div class="score-row" data-skey="'+key+'">'  
-    +'<div class="stars">'+starHtml+'</div>'
-    +'<span class="snum" id="sn-'+key+'">'+(sc>0?sc+'/10':'&#8212;')+'</span>'
-    +'</div></div>'
-    + variantHtml
     + '</div></div>';
 }
 
@@ -8150,16 +8178,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#1a1a2a;--accent2:#1a1a2a;--accentr:26,26,42;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2025 AMG E 53 HYBRID 4MATIC+ Wagon &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2025 AMG E 53 HYBRID 4MATIC+ Wagon</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -8273,7 +8365,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -8529,16 +8621,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#4a3a1a;--accent2:#4a3a1a;--accentr:74,58,26;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2024 RS6 Avant Performance &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2024 RS6 Avant Performance</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -8646,7 +8802,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -8902,16 +9058,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#1c3a6e;--accent2:#1c3a6e;--accentr:28,58,110;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2025 BMW X3 xDrive30 &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2025 BMW X3 xDrive30</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -9019,7 +9239,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -9275,16 +9495,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#1c3a6e;--accent2:#1c3a6e;--accentr:28,58,110;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2024 X5 xDrive50e PHEV &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2024 X5 xDrive50e PHEV</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -9392,7 +9676,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -9648,16 +9932,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#1c3a6e;--accent2:#1c3a6e;--accentr:28,58,110;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2024 X7 xDrive40i &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2024 X7 xDrive40i</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -9765,7 +10113,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -10021,16 +10369,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#1c3a6e;--accent2:#1c3a6e;--accentr:28,58,110;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2025 M5 Touring xDrive (1st US M Wagon) &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2025 M5 Touring xDrive (1st US M Wagon)</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -10138,7 +10550,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -10394,16 +10806,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#1c3a6e;--accent2:#1c3a6e;--accentr:28,58,110;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2024 X7 M60i xDrive &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2024 X7 M60i xDrive</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -10511,7 +10987,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -10767,16 +11243,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#1c3a6e;--accent2:#1c3a6e;--accentr:28,58,110;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2024 X5 M Competition &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2024 X5 M Competition</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -10884,7 +11424,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -11140,16 +11680,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#8b0000;--accent2:#8b0000;--accentr:139,0,0;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2025 BMW XM &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2025 BMW XM</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -11257,7 +11861,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -11513,16 +12117,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#8B0000;--accent2:#8B0000;--accentr:139,0,0;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2024 Cayenne Turbo E-Hybrid &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2024 Cayenne Turbo E-Hybrid</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -11630,7 +12298,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -11886,16 +12554,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#8B0000;--accent2:#8B0000;--accentr:139,0,0;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2024 Cayenne Coupe Turbo GT &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2024 Cayenne Coupe Turbo GT</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -12003,7 +12735,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -12259,16 +12991,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#8B0000;--accent2:#8B0000;--accentr:139,0,0;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2024 Cayenne GTS &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2024 Cayenne GTS</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -12376,7 +13172,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -12632,16 +13428,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#1a1a1a;--accent2:#1a1a1a;--accentr:26,26,26;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2024 G 550 4MATIC &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2024 G 550 4MATIC</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -12755,7 +13615,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -13011,16 +13871,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#1a1a1a;--accent2:#1a1a1a;--accentr:26,26,26;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2025 G 580 EQ 4MATIC (EV) &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2025 G 580 EQ 4MATIC (EV)</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -13068,7 +13992,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -13287,16 +14211,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#1a1a1a;--accent2:#1a1a1a;--accentr:26,26,26;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2024 AMG G 63 4x4 &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2024 AMG G 63 4x4</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -13410,7 +14398,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -13666,16 +14654,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#9a7820;--accent2:#9a7820;--accentr:154,120,32;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2024 GX 550 Overtrail+ Premium &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2024 GX 550 Overtrail+ Premium</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -13795,7 +14847,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -14051,16 +15103,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#1a3a1a;--accent2:#1a3a1a;--accentr:26,58,26;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2024 Range Rover HSE D350 &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2024 Range Rover HSE D350</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -14168,7 +15284,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -14424,16 +15540,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#1a3a1a;--accent2:#1a3a1a;--accentr:26,58,26;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2024 Range Rover Sport HSE Dynamic &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2024 Range Rover Sport HSE Dynamic</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -14541,7 +15721,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -14797,16 +15977,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#6b5a20;--accent2:#6b5a20;--accentr:107,90,32;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2025 Land Cruiser 1958 Edition &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2025 Land Cruiser 1958 Edition</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -14914,7 +16158,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -15170,16 +16414,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#9a7820;--accent2:#9a7820;--accentr:154,120,32;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2024 LX 600 Ultra Luxury &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2024 LX 600 Ultra Luxury</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -15299,7 +16607,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -15555,16 +16863,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#1a1a2a;--accent2:#1a1a2a;--accentr:26,26,42;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2025 E 450 4MATIC All-Terrain Wagon &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2025 E 450 4MATIC All-Terrain Wagon</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -15678,7 +17050,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -15934,16 +17306,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#2a4a28;--accent2:#2a4a28;--accentr:42,74,40;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2024 Defender 130 X V8 &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2024 Defender 130 X V8</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -16051,7 +17487,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -16307,16 +17743,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#005580;--accent2:#005580;--accentr:0,85,128;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2024 V60 Cross Country B5 AWD &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2024 V60 Cross Country B5 AWD</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -16424,7 +17924,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -16680,16 +18180,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#003057;--accent2:#003057;--accentr:0,48,87;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2025 XC90 B6 AWD Ultimate Dark &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2025 XC90 B6 AWD Ultimate Dark</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -16797,7 +18361,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -17053,16 +18617,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#005580;--accent2:#005580;--accentr:0,85,128;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2024 V90 Cross Country B6 AWD &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2024 V90 Cross Country B6 AWD</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -17170,7 +18798,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -17426,16 +19054,80 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 @media(max-width:760px){.feat-grid{grid-template-columns:1fr;}}
 
 :root{--accent:#003057;--accent2:#003057;--accentr:0,48,87;}
+
+/* -- Top nav - fully self-contained, no external font deps ------- */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1714;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .55rem 1.75rem;
+  border-bottom: 2px solid #c4a040;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.top-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .42rem 1.1rem .42rem .75rem;
+  border-radius: 100px;
+  background: #9a7820;
+  color: #fff;
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background .15s, transform .15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.top-nav-back:hover {
+  background: #b89030;
+  transform: translateX(-2px);
+}
+.top-nav-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.top-nav-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top-nav-sep {
+  color: rgba(255,255,255,.2);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
 <nav class="top-nav">
   <a href="#" onclick="window.close();return false;" class="top-nav-back">
-    <svg viewBox="0 0 16 16" style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="10 4 6 8 10 12"/></svg>
+    <svg viewBox="0 0 16 16"><polyline points="10 4 6 8 10 12"/></svg>
     Vehicle Picker
   </a>
-  <span style="opacity:.25;margin:0 .2rem">|</span>
-  <span class="top-nav-title">2025 XC90 Recharge T8 Ultimate AWD &mdash; Under the Hood</span>
+  <span class="top-nav-sep">|</span>
+  <span class="top-nav-title">2025 XC90 Recharge T8 Ultimate AWD</span>
 </nav>
 <div class="wrap">
 <header class="hero">
@@ -17543,7 +19235,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 </p></div>
 </section>
 <div class="page-footer">
-  <a href="#" onclick="window.close();return false;" class="back-link" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
+  <a href="#" onclick="window.close();return false;" class="back-link footer-back" style="font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;">&#8592; Vehicle Picker</a>
   <span style="font-family:var(--mono);font-size:9px;color:var(--dim)">Under the Hood &nbsp;|&nbsp; Powertrain data from manufacturer specs &nbsp;|&nbsp; Curves estimated from published peak values</span>
 </div>
 </div>
@@ -17650,8 +19342,7 @@ document.addEventListener('click', function(e) {
   var href = a.getAttribute('href');
   if (href && EMBEDDED_PAGES[href]) {
     e.preventDefault();
-    var blob = new Blob([EMBEDDED_PAGES[href]], {type:'text/html'});
-    window.open(URL.createObjectURL(blob), '_blank');
+    openFocusTab(href);
   }
 }, true);
 
@@ -17670,17 +19361,48 @@ function switchFromCompareTab() {
 }
 function openFocusPage(fname) {
   if (typeof EMBEDDED_PAGES !== 'undefined' && EMBEDDED_PAGES[fname]) {
-    var blob = new Blob([EMBEDDED_PAGES[fname]], {type:'text/html'});
-    window.open(URL.createObjectURL(blob), '_blank');
+    openFocusTab(fname);
   } else {
     window.open(fname, '_blank');
   }
 }
+function openFocusTab(fname) {
+  // Build label from filename
+  var label = fname.replace(/_Focus\.html$/, '').replace(/_Hood\.html$/, '').replace(/_/g, ' ');
+  // Render content into the focus panel
+  var content = document.getElementById('focusTabContent');
+  if (!content) return;
+  // Write the embedded page into a srcdoc-less approach: inject as shadow DOM or direct write
+  // Use a blob URL in an iframe for full CSS isolation
+  var blob = new Blob([EMBEDDED_PAGES[fname]], {type:'text/html'});
+  var url = URL.createObjectURL(blob);
+  content.innerHTML = '<iframe src="' + url + '" style="width:100%;height:100%;border:none;display:block;" onload="URL.revokeObjectURL(this.src)"></iframe>';
+  // Update label
+  var lbl = document.getElementById('focusTabLabel');
+  if (lbl) lbl.textContent = label;
+  // Show panel, hide everything else
+  document.getElementById('main').style.display = 'none';
+  document.getElementById('tab-cargo').style.display = 'none';
+  document.getElementById('tab-compare').style.display = 'none';
+  document.getElementById('tab-focus').style.display = 'flex';
+  document.getElementById('btnCompareTab').classList.remove('active');
+  document.getElementById('btnCargoTab').classList.remove('active');
+  window.scrollTo(0, 0);
+}
+
+function closeFocusTab() {
+  document.getElementById('tab-focus').style.display = 'none';
+  var content = document.getElementById('focusTabContent');
+  if (content) content.innerHTML = ''; // free memory
+  document.getElementById('main').style.display = 'block';
+}
+
 
 // Ensure compare tab hides when cargo tab opens
 var _origSwitchToCargo = switchToCargoTab;
 switchToCargoTab = function() {
   document.getElementById('tab-compare').style.display = 'none';
+  document.getElementById('tab-focus').style.display = 'none';
   document.getElementById('btnCompareTab').classList.remove('active');
   _origSwitchToCargo();
 };
@@ -17688,12 +19410,14 @@ switchToCargoTab = function() {
 var _origSelectBrand = selectBrand;
 selectBrand = function(i) {
   document.getElementById('tab-compare').style.display = 'none';
+  document.getElementById('tab-focus').style.display = 'none';
   document.getElementById('btnCompareTab').classList.remove('active');
   _origSelectBrand(i);
 };
 var _origSelectWagon = selectWagon;
 selectWagon = function(i) {
   document.getElementById('tab-compare').style.display = 'none';
+  document.getElementById('tab-focus').style.display = 'none';
   document.getElementById('btnCompareTab').classList.remove('active');
   _origSelectWagon(i);
 };
