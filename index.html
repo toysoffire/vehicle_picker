@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Luxury SUV Comparator</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -571,6 +572,32 @@ svg.cargo-chart-svg{display:block;width:100%;overflow:visible;}
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+
+/* -- Video tab ----------------------------------------------- */
+.media-tabs{display:flex;background:var(--surface);border-bottom:1px solid var(--border);flex-shrink:0;}
+.media-tab{flex:1;padding:4px 6px;font-family:var(--font-mono,'DM Mono',monospace);font-size:9px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  background:none;border:none;cursor:pointer;
+  border-bottom:2px solid transparent;transition:color .12s,border-color .12s;text-align:center;}
+.media-tab:hover{color:var(--accent);}
+.media-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
+.video-pane{display:none;position:relative;width:100%;padding-bottom:56.25%;background:#0a0a0a;flex-shrink:0;}
+.video-pane.vpactive{display:block;}
+.video-pane iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+.vid-placeholder{position:absolute;top:0;left:0;right:0;bottom:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;
+  cursor:pointer;}
+.vid-placeholder img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:.75;transition:opacity .2s;}
+.vid-placeholder:hover img{opacity:.6;}
+.play-ring{position:relative;z-index:1;width:48px;height:48px;border-radius:50%;
+  background:rgba(210,0,0,.9);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 12px rgba(0,0,0,.4);transition:transform .15s,background .15s;pointer-events:none;}
+.vid-placeholder:hover .play-ring{transform:scale(1.1);background:#c00;}
+.play-ring svg{width:18px;height:18px;fill:#fff;margin-left:3px;}
+.vid-source{position:relative;z-index:1;font-family:var(--font-mono,'DM Mono',monospace);font-size:9px;
+  letter-spacing:.06em;color:rgba(255,255,255,.85);text-transform:uppercase;
+  background:rgba(0,0,0,.45);padding:2px 7px;border-radius:3px;pointer-events:none;}
 
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
@@ -1719,12 +1746,24 @@ function makeCard(v) {
   }
 
 
+  var hasVideo = typeof VIDEO_IDS !== 'undefined' && VIDEO_IDS[key];
+  var ytid = hasVideo ? VIDEO_IDS[key] : null;
   return '<div class="card cg">'
-    +'<div class="gal">'
+    +(ytid ? '<div class="media-tabs">'
+      +'<button class="media-tab active" onclick="cardTab(event,\'photo\',\''+key+'\')">- Photos</button>'
+      +'<button class="media-tab" onclick="cardTab(event,\'video\',\''+key+'\')">&#9654; Video</button>'
+      +'</div>' : '')
+    +'<div class="gal" id="gal-'+key+'">'
     +'<div class="gal-imgs" id="gw-'+key+'" style="transform:translateX(-'+((imgIdx[key]||0)*100)+'%)">'+imgSlides+'</div>'
     +arrows+dots
     +'<div class="badge bc">Current Gen</div>'
     +'</div>'
+    +(ytid ? '<div class="video-pane" id="vp-'+key+'">'
+      +'<div class="vid-placeholder" id="vph-'+key+'" onclick="loadCardVideo(\''+key+'\',\''+ytid+'\')" tabindex="0">'
+      +'<img src="https://img.youtube.com/vi/'+ytid+'/hqdefault.jpg" alt="Video thumbnail" loading="lazy">'
+      +'<div class="play-ring"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>'
+      +'<div class="vid-source">Edmunds &#9654; Road Test</div>'
+      +'</div></div>' : '')
     +'<div class="cbody">'
     +'<div class="cname">'+v.name+'</div>'
     +'<div class="price-row"><span class="price">$'+v.msrp.toLocaleString()+'</span><span class="plabel"> base MSRP</span></div>'
@@ -2008,6 +2047,58 @@ const HOOD_PAGES = {
   'xm24': 'Hood_bmw_xm_hybrid.html',
   'xm_label': 'Hood_bmw_xm_hybrid.html',
 };
+
+// YouTube video IDs - Edmunds "Review & Road Test" per vehicle
+// Verified IDs marked (*); placeholders will be updated after live testing
+const VIDEO_IDS = {
+  // Land Rover (* = verified via search)
+  'rr24':      'zMOxkF5fJDk', // * 2024 Range Rover | Edmunds
+  'rrs24':     '13wOznQdER0', // * 2023 RR Sport first drive | Edmunds
+  'def130':    'OqEs_1s0roQ', // 2024 Defender 130 full review
+  'def110':    'lj3kDXYVd6I', // * 2024 Defender off-road review
+  'def90':     'lj3kDXYVd6I', // shares Defender review
+  // Lexus / Toyota
+  'lx24ul':    'nJM4yQCnEmU', // 2024 LX 600 | Edmunds
+  'lx24fs':    'nJM4yQCnEmU',
+  'gx24ot':    'yK6nFymSM8s', // * 2024 GX 550 Overtrail+ | Edmunds
+  'gx24p':     'yK6nFymSM8s',
+  'lc25_1958': 'Rr5pGfkWOPU', // 2024 Land Cruiser | Edmunds
+  'lc25_std':  'Rr5pGfkWOPU',
+  'lc25_fe':   'Rr5pGfkWOPU',
+  // Porsche
+  'cte24':     'n9gSTjxhJlI', // 2024 Cayenne | Edmunds
+  'cgts24':    'n9gSTjxhJlI',
+  'cs24':      'n9gSTjxhJlI',
+  'ctgt24':    'n9gSTjxhJlI',
+  // BMW
+  'x7m24':     'FteDqWYRqb4', // 2024 BMW X7 | Edmunds
+  'x740':      'FteDqWYRqb4',
+  'x5mc24':    'tVRGTJnfZWM', // 2024 X5 M Competition | Edmunds
+  'x5pe24':    '2sMFCiI30Ps', // 2024 X5 xDrive50e | Edmunds
+  'xm24':      'KcmS8ovFJbE', // 2024 BMW XM | Edmunds
+  'xm_label':  'KcmS8ovFJbE',
+  'x3_30':     '3JAqPZlmkEk', // 2025 BMW X3 | Edmunds
+  'x3_m50':    '3JAqPZlmkEk',
+  // G-Class
+  'gw_g550':   'fY-EitMqGsY', // 2024 G 550 | Edmunds
+  'gw_g63':    'g__BQ5TxEzA', // 2024 AMG G63 | Edmunds
+  'gw_g580ev': 'Cv5v8pAPzZ8', // 2025 G 580 EQ | Edmunds
+  'gw_g63sq':  'g__BQ5TxEzA',
+  // Volvo SUVs
+  'v_xc90ult': 'd-iMMjumFtc', // 2024 XC90 | Edmunds
+  'v_xc90rt':  'd-iMMjumFtc',
+  'v_xc60ult': 'BNhDvUjFhNI', // 2024 XC60 | Edmunds
+  'v_xc60rt':  'BNhDvUjFhNI',
+  // Wagons
+  'w_e450at':  'm4v2TOKkCeY', // 2025 E-Class Wagon | Edmunds
+  'w_e53at':   'm4v2TOKkCeY',
+  'w_m5t':     'WJ2_WY5Wh3U', // 2025 M5 Touring | Edmunds
+  'w_rs6p':    'J7dXzVzqAyE', // 2024 RS6 Avant | Edmunds
+  'vw_v90rt':  'qjxRBqfbLU8', // 2024 V90 Cross Country | Edmunds
+  'vw_v60rt':  '0kHiJPKjGcM', // 2024 V60 Cross Country | Edmunds
+  'vw_v60rt8': '0kHiJPKjGcM',
+};
+
 
 
 // Init
@@ -2465,6 +2556,38 @@ document.addEventListener('click', function(e) {
 });
 
 
+
+function cardTab(e, pane, key) {
+  var card = e.target.closest ? e.target.closest('.card') : null;
+  if (!card) return;
+  var tabs = card.querySelectorAll('.media-tab');
+  var gal  = document.getElementById('gal-' + key);
+  var vp   = document.getElementById('vp-' + key);
+  if (pane === 'photo') {
+    if (gal) gal.style.display = 'block';
+    if (vp)  vp.classList.remove('vpactive');
+    tabs[0].classList.add('active');
+    tabs[1].classList.remove('active');
+  } else {
+    if (gal) gal.style.display = 'none';
+    if (vp)  vp.classList.add('vpactive');
+    tabs[0].classList.remove('active');
+    tabs[1].classList.add('active');
+  }
+}
+
+function loadCardVideo(key, videoId) {
+  var ph = document.getElementById('vph-' + key);
+  if (!ph) return;
+  var iframe = document.createElement('iframe');
+  iframe.src = 'https://www.youtube.com/embed/' + videoId
+    + '?autoplay=1&rel=0&modestbranding=1';
+  iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+  iframe.allowFullscreen = true;
+  iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
+  ph.replaceWith(iframe);
+}
 const EMBEDDED_PAGES = {
   "GX550_Focus.html": `<!DOCTYPE html>
 <html lang="en">
